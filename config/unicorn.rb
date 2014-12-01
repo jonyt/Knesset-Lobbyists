@@ -10,7 +10,7 @@ before_fork do |server, worker|
     Process.kill 'QUIT', Process.pid
   end
   
-  require File.dirname(__FILE__) + '../models/init'
+  require File.dirname(__FILE__) + '/../models/init'
 end
 
 after_fork do |server, worker|

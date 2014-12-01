@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-Bundler.require(:default, :development)
+Bundler.require(:default)
 Dotenv.load if ENV['RACK_ENV'].downcase != 'production'
 
 require_relative 'models/init'
