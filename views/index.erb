@@ -13,7 +13,7 @@
     <meta property="og:description" content="חיפוש תורמים למועמדים בפריימריז של מפלגות שונות"/>
     <meta property="og:type" content="website"/>
 
-    <title>תורמים לפריימריז</title>
+    <title>חברות המעסיקות לוביסטים בכנסת</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
   	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">תורמים למועמדים לפריימריז</a>
+          <a class="brand" href="#">חברות המעסיקות לוביסטים בכנסת</a>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
     	<div class="row">
     		<div class="span4">
     			<form id="search-form" class="form-inline">
-				    <input type="text" class="form-control" id="donor-input" autocomplete="off" placeholder="שם התורם">
+				    <input type="text" class="form-control" id="donor-input" autocomplete="off" placeholder="שם החברה">
 				    <input type="hidden" id="donor-id-input">
 				    <button type="submit" class="btn btn-primary btn-large">חפש</button>
 				    <img src="/img/loader.gif" alt="loading..." id="loader">
@@ -75,9 +75,8 @@
     		</div>
   			<div class="span7">
   				<h2>
-  					דוגמאות: <a href="#506">ולדימיר גוסינסקי</a>, <a href="#3014">אריה סבן</a>, 
-  					<a href="#124">עודד כספי</a>, <a href="#3277">משה חדיף</a>, <a href="#1961">מייקל אייזנברג</a>,
-  					<a href="#5433">צ'רלס ברונפמן</a>
+  					דוגמאות: <a href="#2632">חברת החשמל</a>, <a href="#2669">ארגון עובדי בנק לאומי</a>, 
+  					<a href="#2542">בנק הפועלים</a>
   				</h2>
   			</div>    		
     	</div>
@@ -93,7 +92,7 @@
     	<div id="footer" class="row">
     		<nav class="navbar navbar-default navbar-fixed-bottom">
 		        <div class="navbar-inner navbar-content-center">
-		            <p class="text-muted credit">המידע נלקח <a href="http://primaries.publish.mevaker.gov.il/index.aspx">מאתר מבקר המדינה</a> ועובד על ידי <a href="http://il.linkedin.com/in/yoniyomtov/">יוני יום-טוב</a></p>
+		            <p class="text-muted credit">רעיון: <a href="https://tomeravital.wordpress.com/">תומר אביטל</a>, ביצוע: <a href="http://il.linkedin.com/in/yoniyomtov/">יוני יום-טוב</a>. המידע נלקח <a href="http://www.knesset.gov.il/lobbyist/heb/lobbyist.aspx">מאתר הכנסת</a>.</p>
 		        </div>
 		    </nav>
 		</div>
@@ -111,7 +110,7 @@
 			    		window.location.host + window.location.pathname + '#' + donorId;
 			}
 
-			var data = <%= @donors %>;
+			var data = <%= @companies %>;
 			$('#donor-input').typeahead({
 			    source: function(query, process) {
 			        objects = [];
@@ -140,13 +139,13 @@
 				if (donorId != parseInt(donorId)) return;
 
 				$('#loader').show();
-				$.get('/donor/' + donorId,
+				$.get('/company/' + donorId,
 					function(data){
 						$('#results').html(data);
 					}
 				).error(function(){
 					alert('קרתה תאונה');
-				}).done(function(){
+				}).always(function(){
 					$('#loader').hide();
 				});			    
 			});

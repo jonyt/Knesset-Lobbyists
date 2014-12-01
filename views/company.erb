@@ -1,0 +1,17 @@
+<h2><%= @company.name %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>שם הלוביסט</th>      
+      <th>שם המעסיק</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @company.lobbyists.each do |lobbyist| %>
+  		<tr>
+  			<td><%= lobbyist.name %></td>
+  			<td><%= lobbyist.lobbying_company.name %></td>  			
+  		</tr>
+  	<% end %>    
+  </tbody>
+</table>

@@ -7,6 +7,7 @@ GEM
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
     ffi (1.9.6)
+    json (1.8.1)
     kgio (2.9.2)
     multi_json (1.10.1)
     pg (0.17.1)
@@ -41,6 +42,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  json
   pg
   sequel
   shotgun
